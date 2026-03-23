@@ -1,0 +1,21 @@
+# PHP
+/vendor/
+/.phpunit.result.cache
+/composer.lock
+
+# App Specific
+/tmp/*
+/output/*
+!/tmp/.gitkeep
+!/output/.gitkeep
+
+# ExifTool Binaries (Recommend download as per README)
+exiftool.exe
+exiftool
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

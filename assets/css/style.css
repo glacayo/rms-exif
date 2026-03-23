@@ -1,0 +1,306 @@
+/* ══════════════════════════════════════════════════════════════
+   RMS Image Optimizer — Bootstrap 5 dark-theme overrides
+   ══════════════════════════════════════════════════════════════ */
+
+:root,
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0d0f14;
+  --bs-body-color: #e9ecf5;
+  --bs-card-bg: #141720;
+  --bs-card-border-color: #252a3a;
+  --bs-card-cap-bg: #1c2030;
+  --bs-border-color: #252a3a;
+  --rms-primary: #4f8ef7;
+  --rms-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Navbar ─────────────────────────────────────────────── */
+.rms-navbar {
+  background: #141720 !important;
+  border-bottom: 1px solid #252a3a;
+  backdrop-filter: blur(20px);
+}
+
+.rms-brand-icon {
+  color: var(--rms-primary);
+}
+
+/* ── Step wizard ─────────────────────────────────────────── */
+.rms-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.rms-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+}
+
+.rms-step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #2e3550;
+  background: #141720;
+  color: #4a5470;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.rms-step.active .rms-step-circle {
+  background: var(--rms-primary);
+  border-color: var(--rms-primary);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(79, 142, 247, .35);
+}
+
+.rms-step.done .rms-step-circle {
+  background: #0e3d22;
+  border-color: #30d97b;
+  color: #30d97b;
+}
+
+.rms-step-label {
+  font-size: .68rem;
+  font-weight: 500;
+  color: #4a5470;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rms-step.active .rms-step-label {
+  color: var(--rms-primary);
+}
+
+.rms-step-line {
+  flex: 1;
+  height: 1px;
+  background: #2e3550;
+  min-width: 3rem;
+  max-width: 8rem;
+  margin: 0 .5rem .9rem;
+}
+
+/* ── Step panels ─────────────────────────────────────────── */
+.rms-step-panel {
+  animation: rmsSlideIn .3s ease;
+}
+
+@keyframes rmsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .45);
+  transition: border-color .2s ease;
+}
+
+.card:hover {
+  border-color: #2e3550;
+}
+
+.card-header {
+  border-bottom-color: #252a3a;
+}
+
+.card-title {
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+/* ── Drop Zone ───────────────────────────────────────────── */
+.rms-drop-zone {
+  border: 2px dashed #2e3550;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: all .2s ease;
+  background: rgba(255, 255, 255, .015);
+}
+
+.rms-drop-zone:hover,
+.rms-drop-zone:focus-within {
+  border-color: var(--rms-primary);
+  background: rgba(79, 142, 247, .07);
+}
+
+.rms-drop-zone.drag-over {
+  border-color: var(--rms-primary);
+  background: rgba(79, 142, 247, .1);
+  box-shadow: 0 0 22px rgba(79, 142, 247, .25);
+}
+
+.rms-drop-icon {
+  font-size: 3rem;
+  display: block;
+}
+
+/* ── File Queue ──────────────────────────────────────────── */
+.rms-queue-item {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .45rem .7rem;
+  background: #1c2030;
+  border: 1px solid #252a3a;
+  border-radius: .375rem;
+  margin-bottom: .35rem;
+  font-size: .83rem;
+}
+
+.rms-queue-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #252a3a;
+  flex-shrink: 0;
+}
+
+.rms-queue-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.rms-queue-size {
+  color: #7e8baa;
+  font-size: .73rem;
+}
+
+.rms-queue-remove {
+  background: none;
+  border: none;
+  color: #4a5470;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: .1rem .35rem;
+  border-radius: 3px;
+  transition: all .15s;
+}
+
+.rms-queue-remove:hover {
+  color: var(--bs-danger);
+  background: rgba(220, 53, 69, .12);
+}
+
+/* ── Filename preview ─────────────────────────────────────── */
+.rms-filename-preview {
+  background: #1c2030;
+  border: 1px solid #252a3a;
+  font-family: var(--rms-mono);
+  font-size: .82rem;
+}
+
+/* ── DMS output ──────────────────────────────────────────── */
+.rms-dms-output {
+  font-family: var(--rms-mono);
+  font-size: .75rem;
+  color: #30d97b;
+  height: auto;
+  min-height: 31px;
+  background: #1c2030;
+  cursor: default;
+}
+
+/* ── Image comparison ────────────────────────────────────── */
+.rms-compare-img {
+  max-height: 260px;
+  object-fit: contain;
+  background: #1c2030;
+}
+
+/* ── EXIF table ──────────────────────────────────────────── */
+#exif-table dt {
+  font-size: .68rem;
+  font-weight: 700;
+  color: #4a5470;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .5rem .75rem .1rem;
+}
+
+#exif-table dt:first-child {
+  padding-top: .75rem;
+}
+
+#exif-table dd {
+  font-size: .8rem;
+  font-family: var(--rms-mono);
+  padding: .2rem .75rem .5rem;
+  border-bottom: 1px solid #1c2030;
+  word-break: break-all;
+  margin: 0;
+}
+
+#exif-table dd:last-child {
+  border-bottom: none;
+}
+
+/* ── Batch tabs ──────────────────────────────────────────── */
+.rms-tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+/* ── Alert sm ────────────────────────────────────────────── */
+.alert-sm {
+  font-size: .8rem;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.rms-footer {
+  font-size: .75rem;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e3550;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rms-primary);
+}
+
+/* ── Utility ─────────────────────────────────────────────── */
+[hidden] {
+  display: none !important;
+}
+
+code {
+  font-family: var(--rms-mono);
+}
